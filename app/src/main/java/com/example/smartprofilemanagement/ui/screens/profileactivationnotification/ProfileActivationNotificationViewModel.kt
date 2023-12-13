@@ -1,0 +1,4 @@
+package com.example.smartprofilemanagement.ui.screens.profileactivationnotification
+
+class ProfileActivationNotificationViewModel {
+}
