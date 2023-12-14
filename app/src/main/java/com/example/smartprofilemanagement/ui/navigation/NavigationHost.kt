@@ -56,9 +56,9 @@ fun NavigationHost (
         composable(route=Screen.CallLogs.route){
             CallLogScreen(navController = navController)
         }
-        composable(route=Screen.MaintainCallLogs.route){
-            MaintainCallLogScreen(navController = navController)
-        }
+//        composable(route=Screen.MaintainCallLogs.route){
+//            MaintainCallLogScreen(navController = navController)
+//        }
         composable(route=Screen.NewProfile.route){
             NewProfileScreen(navController = navController)
         }
@@ -75,7 +75,7 @@ fun NavigationHost (
             AddReminderScreen(navController = navController)
         }
         composable(route=Screen.MessageNotification.route){
-            MessageNotificationScreen(navController = navController)
+            MessageNotificationScreen(navController = navController,profileId = null)
         }
         composable(route=Screen.CurrentLocation.route){
             CurrentLocationScreen(navController = navController)

@@ -7,11 +7,15 @@ import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.smartprofilemanagement.data.infrastructure.AppDatabase
+import com.example.smartprofilemanagement.data.repositories.LocationRepository
+import com.example.smartprofilemanagement.data.repositories.MessageRepository
 import com.example.smartprofilemanagement.data.repositories.ProfileRepository
 import com.example.smartprofilemanagement.data.repositories.ReminderRepository
 import com.example.smartprofilemanagement.data.repositories.UserRepository
+import com.example.smartprofilemanagement.ui.screens.currentlocation.CurrentLocationViewModel
 import com.example.smartprofilemanagement.ui.screens.home.HomeViewModel
 import com.example.smartprofilemanagement.ui.screens.managereminder.ReminderViewModel
+import com.example.smartprofilemanagement.ui.screens.messagenotification.MessageNotificationViewModel
 import com.example.smartprofilemanagement.ui.screens.profile.ProfileViewModel
 import com.example.smartprofilemanagement.ui.screens.signup.SignupViewModel
 
@@ -51,6 +55,22 @@ object AppViewModelProvider {
             ReminderViewModel(
                 ReminderRepository(
                     AppDatabase.getDbInstance(getApplication().applicationContext).reminderDao()
+                )
+            )
+//            HomeViewModel(getApplication().container.workoutRepository)
+        }
+        initializer {
+            MessageNotificationViewModel(
+                MessageRepository(
+                    AppDatabase.getDbInstance(getApplication().applicationContext).messageDao()
+                )
+            )
+//            HomeViewModel(getApplication().container.workoutRepository)
+        }
+        initializer {
+            CurrentLocationViewModel(
+                LocationRepository(
+                    AppDatabase.getDbInstance(getApplication().applicationContext).locationDao()
                 )
             )
 //            HomeViewModel(getApplication().container.workoutRepository)

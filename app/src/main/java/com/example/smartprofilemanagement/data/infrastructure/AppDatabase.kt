@@ -6,10 +6,14 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.smartprofilemanagement.data.daos.CallLogDao
+import com.example.smartprofilemanagement.data.daos.LocationDao
+import com.example.smartprofilemanagement.data.daos.MessageDao
 import com.example.smartprofilemanagement.data.daos.ProfileDao
 import com.example.smartprofilemanagement.data.daos.ReminderDao
+import com.example.smartprofilemanagement.data.daos.SleepingHoursDao
 import com.example.smartprofilemanagement.data.daos.UserDao
 import com.example.smartprofilemanagement.data.entities.CallLog
+import com.example.smartprofilemanagement.data.entities.Message
 import com.example.smartprofilemanagement.data.entities.Profile
 import com.example.smartprofilemanagement.data.entities.Reminder
 import com.example.smartprofilemanagement.data.entities.User
@@ -21,13 +25,15 @@ import com.example.smartprofilemanagement.data.entities.User
 //        User::class,
         Reminder::class,
         CallLog::class,
+        Message::class,
 //    Exercise::class,
                ],
-    version = 6,
+    version = 7,
     exportSchema = true,
     autoMigrations = [
         AutoMigration (from = 4, to = 5),
         AutoMigration (from = 5, to = 6),
+        AutoMigration (from = 6, to = 7),
 
 //        AutoMigration(from = 2, to = 3)
 
@@ -38,6 +44,9 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun callLogDao(): CallLogDao
 //    abstract fun userDao(): UserDao
     abstract fun reminderDao(): ReminderDao
+    abstract fun messageDao(): MessageDao
+    abstract fun locationDao(): LocationDao
+    abstract fun sleepingHoursDao(): SleepingHoursDao
 
 //    val migration_4_5 = object : Migration(4,5){
 //        override fun migrate(database: Support)

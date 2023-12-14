@@ -42,24 +42,24 @@ fun CurrentLocationScreen(
 //    locationViewModel: LocationViewModel = viewModel(),
     navController: NavController) {
 
-    Box(
-        contentAlignment = Alignment.Center,
-        modifier = Modifier.fillMaxSize() // Fills the parent
-    ){
-        Column (
-            horizontalAlignment = Alignment.CenterHorizontally, // Centering content horizontally
-            verticalArrangement = Arrangement.spacedBy(20.dp) // Space between children
-        ) {
-            Button(onClick = {  }) {
-                Text("Current Location Screen")
-            }
-
-            FilledTonalButton(onClick = { navController.navigate(Screen.Home.route) }) {
-                Text("Home")
-            }
-        }
-
-    }
+//    Box(
+//        contentAlignment = Alignment.Center,
+//        modifier = Modifier.fillMaxSize() // Fills the parent
+//    ){
+//        Column (
+//            horizontalAlignment = Alignment.CenterHorizontally, // Centering content horizontally
+//            verticalArrangement = Arrangement.spacedBy(20.dp) // Space between children
+//        ) {
+//            Button(onClick = {  }) {
+//                Text("Current Location Screen")
+//            }
+//
+//            FilledTonalButton(onClick = { navController.navigate(Screen.Home.route) }) {
+//                Text("Home")
+//            }
+//        }
+//
+//    }
 
 
 

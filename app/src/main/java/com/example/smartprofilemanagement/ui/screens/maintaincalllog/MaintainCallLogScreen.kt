@@ -73,11 +73,12 @@ fun CallLogItem(callLog: CallLog) {
 @Preview(showBackground = true)
 fun MaintainCallLogScreenPreview() {
     SmartProfileManagementTheme {
+        val navController = rememberNavController()
         val callLogs = List(5) {
             CallLog(0, "John Doe", 5, "2023-12-01 10:30 AM")
         }
         MaintainCallLogScreen(
-            navController = rememberNavController(),
+            navController = navController,
             callLogs = callLogs,
             onClearClick = {})
     }
