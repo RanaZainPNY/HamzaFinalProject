@@ -22,7 +22,7 @@ import com.example.smartprofilemanagement.ui.theme.SmartProfileManagementTheme
 @Composable
 fun ManageRemindersScreen(
     navController: NavController,
-//    viewModel: ReminderViewModel = viewModel(factory = AppViewModelProvider.Factory)
+    viewModel: ReminderViewModel = viewModel(factory = AppViewModelProvider.Factory)
 ) {
     val context = LocalContext.current
     var reminders by remember { mutableStateOf(dummyReminders) }
