@@ -54,7 +54,7 @@ fun NavigationHost (
             CallBlockingScreen(navController = navController)
         }
         composable(route=Screen.CallLogs.route){
-            CallLogScreen()
+            CallLogScreen(navController = navController)
         }
         composable(route=Screen.MaintainCallLogs.route){
             MaintainCallLogScreen(navController = navController)

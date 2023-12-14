@@ -67,12 +67,12 @@ data class NavigationItem(
 @Composable
 fun HomeScreen(navController: NavController){
     val items = listOf(
-        NavigationItem(
-            title = "New Profile",
-            selectedIcon = Icons.Filled.Person, // Change the icons accordingly
-            unselectedIcon = Icons.Outlined.Person,
-            route = "newProfile"
-        ),
+//        NavigationItem(
+//            title = "New Profile",
+//            selectedIcon = Icons.Filled.Person, // Change the icons accordingly
+//            unselectedIcon = Icons.Outlined.Person,
+//            route = "newProfile"
+//        ),
         NavigationItem(
             title = "Manage Reminders",
             selectedIcon = Icons.Default.Notifications,
@@ -91,12 +91,12 @@ fun HomeScreen(navController: NavController){
             unselectedIcon = Icons.Outlined.Notifications,
             route = "messageNotification"
         ),
-        NavigationItem(
-            title = "Add Reminder",
-            selectedIcon = Icons.Filled.Add,
-            unselectedIcon = Icons.Outlined.Add,
-            route = Screen.ManageReminders.route
-        ),
+//        NavigationItem(
+//            title = "Add Reminder",
+//            selectedIcon = Icons.Filled.Add,
+//            unselectedIcon = Icons.Outlined.Add,
+//            route = Screen.ManageReminders.route
+//        ),
         NavigationItem(
             title = "Current Location",
             selectedIcon = Icons.Filled.LocationOn,
@@ -119,7 +119,7 @@ fun HomeScreen(navController: NavController){
             title = "Call Log",
             selectedIcon = Icons.Filled.Call,
             unselectedIcon = Icons.Outlined.Call,
-            route = "callLog"
+            route = Screen.MaintainCallLogs.route
         ),
     )
     Spacer(modifier = Modifier.fillMaxWidth(1f))

@@ -59,18 +59,14 @@ fun CallLogScreen(
             Button(onClick = { }) {
                 Text("Call Log  Screen")
             }
-
             FilledTonalButton(onClick = { navController.navigate(Screen.Home.route) }) {
                 Text("Home")
             }
         }
-
     }
-
 
 //   // val callLogs by viewModel.allCallLogs.observeAsState(emptyList())
 //    val cutoffTime = System.currentTimeMillis() - TimeUnit.DAYS.toMillis(7)
-//
 //    Column(
 //        modifier = Modifier
 //            .fillMaxSize()
@@ -84,7 +80,6 @@ fun CallLogScreen(
 //                CallLogItem(callLog = profile)
 //            }
 //        }
-//
 //        Spacer(modifier = Modifier.height(16.dp))
 //
 //        Button(
@@ -107,6 +102,8 @@ fun CallLogScreen(
 //}
 //
 //
+
+
 @Preview(showBackground = true)
 @Composable
 fun CallLogScreen(){

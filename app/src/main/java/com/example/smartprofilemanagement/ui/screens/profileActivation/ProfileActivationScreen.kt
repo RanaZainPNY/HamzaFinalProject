@@ -46,7 +46,6 @@ fun ProfileActivationScreen(
     var latitude by remember { mutableDoubleStateOf(0.0) }
     var longitude by remember { mutableDoubleStateOf(0.0) }
 
-    // Mockup for location updates
     // In a real app, you would get this from a location service
     LaunchedEffect(Unit) {
         // Simulate location updates every two minutes
@@ -58,7 +57,6 @@ fun ProfileActivationScreen(
                 longitude = getRandomLongitude()
             }
         }
-
         onDispose {
             locationUpdateJob.cancel()
         }

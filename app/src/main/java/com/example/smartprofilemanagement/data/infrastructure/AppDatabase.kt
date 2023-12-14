@@ -5,9 +5,11 @@ import androidx.room.AutoMigration
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.smartprofilemanagement.data.daos.CallLogDao
 import com.example.smartprofilemanagement.data.daos.ProfileDao
 import com.example.smartprofilemanagement.data.daos.ReminderDao
 import com.example.smartprofilemanagement.data.daos.UserDao
+import com.example.smartprofilemanagement.data.entities.CallLog
 import com.example.smartprofilemanagement.data.entities.Profile
 import com.example.smartprofilemanagement.data.entities.Reminder
 import com.example.smartprofilemanagement.data.entities.User
@@ -18,18 +20,22 @@ import com.example.smartprofilemanagement.data.entities.User
         Profile::class,
 //        User::class,
         Reminder::class,
+        CallLog::class,
 //    Exercise::class,
                ],
-    version = 5,
+    version = 6,
     exportSchema = true,
     autoMigrations = [
         AutoMigration (from = 4, to = 5),
+        AutoMigration (from = 5, to = 6),
+
 //        AutoMigration(from = 2, to = 3)
 
     ]
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun profileDao(): ProfileDao
+    abstract fun callLogDao(): CallLogDao
 //    abstract fun userDao(): UserDao
     abstract fun reminderDao(): ReminderDao
 

@@ -1,7 +1,6 @@
 package com.example.smartprofilemanagement.data.repositories
 
-import android.os.Parcel
-import android.os.Parcelable
+
 import com.example.smartprofilemanagement.data.daos.ProfileDao
 import com.example.smartprofilemanagement.data.entities.Profile
 import com.example.smartprofilemanagement.data.infrastructure.Repository
