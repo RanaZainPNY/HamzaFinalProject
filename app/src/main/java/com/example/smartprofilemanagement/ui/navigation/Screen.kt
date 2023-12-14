@@ -35,6 +35,8 @@ sealed class Screen(val options:ScreenOptions) {
 
     object ProfileActivationNotification: Screen(ScreenOptions("profileactivationnotification_screen", "Profile Activation Notification"))
 
+    object MaintainCallLogs: Screen(ScreenOptions("maintaincallLogs_screen", "Maintain call Logs"))
+
 //    object Progress:Screen(ScreenOptions("progress_screen","Progress"))
 //    object Setting:Screen(ScreenOptions("setting_screen", "Settings"))
 //

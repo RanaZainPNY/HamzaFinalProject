@@ -8,8 +8,8 @@ import com.example.smartprofilemanagement.data.repositories.UserRepository
 
 interface IAppContainer {
     val profileRepository: ProfileRepository
-    val userRepository: UserRepository
-    val reminderRepository: ReminderRepository
+//    val userRepository: UserRepository
+//    val reminderRepository: ReminderRepository
 //    val exerciseRepository: ExerciseRepository
 }
 class AppContainer(private val context: Context) : IAppContainer {
@@ -17,14 +17,14 @@ class AppContainer(private val context: Context) : IAppContainer {
         ProfileRepository(AppDatabase.getDbInstance(context).profileDao())
     }
 
-    override val userRepository: UserRepository by lazy {
-        UserRepository(AppDatabase.getDbInstance(context).userDao())
-    }
-
-
-    override val reminderRepository: ReminderRepository by lazy {
-        ReminderRepository(AppDatabase.getDbInstance(context).reminderDao())
-    }
+//    override val userRepository: UserRepository by lazy {
+//        UserRepository(AppDatabase.getDbInstance(context).userDao())
+//    }
+//
+//
+//    override val reminderRepository: ReminderRepository by lazy {
+//        ReminderRepository(AppDatabase.getDbInstance(context).reminderDao())
+//    }
 
 //    override val exerciseRepository: ExerciseRepository by lazy {
 //        ExerciseRepository(AppDatabase.getDbInstance(context).exerciseDao())

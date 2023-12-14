@@ -1,6 +1,5 @@
 package com.example.smartprofilemanagement.ui.screens.callblocking
 
-
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -34,11 +33,8 @@ import com.example.smartprofilemanagement.ui.theme.SmartProfileManagementTheme
 @Composable
 fun CallBlockingScreen(
     navController: NavController)
-
 {
     var phoneNumber by remember { mutableStateOf("") }
-
-
     Scaffold(
         topBar = {
             TopAppBar(
@@ -79,7 +75,6 @@ fun CallBlockingScreen(
                 }
              })
         }
-
 
 @Preview(showBackground = true)
 @Composable

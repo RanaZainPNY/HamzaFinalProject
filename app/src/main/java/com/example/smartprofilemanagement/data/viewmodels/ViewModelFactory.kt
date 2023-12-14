@@ -39,24 +39,24 @@ object AppViewModelProvider {
 //            HomeViewModel(getApplication().container.workoutRepository)
         }
 
-        initializer {
-            SignupViewModel(
-                UserRepository(
-                    AppDatabase.getDbInstance(getApplication().applicationContext).userDao()
-                )
-            )
-//            HomeViewModel(getApplication().container.workoutRepository)
-        }
+//        initializer {
+//            SignupViewModel(
+//                UserRepository(
+//                    AppDatabase.getDbInstance(getApplication().applicationContext).userDao()
+//                )
+//            )
+////            HomeViewModel(getApplication().container.workoutRepository)
+//        }
 
 
-        initializer {
-            ReminderViewModel(
-                ReminderRepository(
-                    AppDatabase.getDbInstance(getApplication().applicationContext).reminderDao()
-                )
-            )
-//            HomeViewModel(getApplication().container.workoutRepository)
-        }
+//        initializer {
+//            ReminderViewModel(
+//                ReminderRepository(
+//                    AppDatabase.getDbInstance(getApplication().applicationContext).reminderDao()
+//                )
+//            )
+////            HomeViewModel(getApplication().container.workoutRepository)
+//        }
 
         // Initializer for HomeViewModel
 //        initializer {

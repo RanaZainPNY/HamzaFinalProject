@@ -50,34 +50,34 @@ fun NavigationHost (
         composable(route=Screen.Profile.route){
             ProfileScreen(navController = navController)
         }
-        composable(route=Screen.Profile.route){
+        composable(route=Screen.CallBlocking.route){
             CallBlockingScreen(navController = navController)
         }
-        composable(route=Screen.Profile.route){
+        composable(route=Screen.CallLogs.route){
             CallLogScreen()
         }
-        composable(route=Screen.Profile.route){
+        composable(route=Screen.MaintainCallLogs.route){
             MaintainCallLogScreen(navController = navController)
         }
-        composable(route=Screen.Profile.route){
+        composable(route=Screen.NewProfile.route){
             NewProfileScreen(navController = navController)
         }
-        composable(route=Screen.Profile.route){
+        composable(route=Screen.ProfileActivation.route){
             ProfileActivationScreen(navController = navController)
         }
-        composable(route=Screen.Profile.route){
+        composable(route=Screen.ManageProfile.route){
             ManageProfilesScreen(navController = navController)
         }
-        composable(route=Screen.Profile.route){
+        composable(route=Screen.ManageReminders.route){
             ManageRemindersScreen(navController = navController)
         }
-        composable(route=Screen.Profile.route){
+        composable(route=Screen.AddReminder.route){
             AddReminderScreen(navController = navController)
         }
-        composable(route=Screen.Profile.route){
+        composable(route=Screen.MessageNotification.route){
             MessageNotificationScreen(navController = navController)
         }
-        composable(route=Screen.Profile.route){
+        composable(route=Screen.CurrentLocation.route){
             CurrentLocationScreen(navController = navController)
         }
 //        composable(route = Screen.Progress.route) {

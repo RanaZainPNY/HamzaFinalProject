@@ -1,6 +1,7 @@
 package com.example.smartprofilemanagement.data.infrastructure
 
 import android.content.Context
+import androidx.room.AutoMigration
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -15,16 +16,24 @@ import com.example.smartprofilemanagement.data.entities.User
 @Database(
     entities = [
         Profile::class,
-        User::class,
-        Reminder::class,
+//        User::class,
+//        Reminder::class,
 //    Exercise::class,
-               ], version = 7, exportSchema = false
+               ],
+    version = 5,
+    exportSchema = true,
+    autoMigrations = [
+        AutoMigration (from = 4, to = 5)
+    ]
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun profileDao(): ProfileDao
-    abstract fun userDao(): UserDao
-    abstract fun reminderDao(): ReminderDao
+//    abstract fun userDao(): UserDao
+//    abstract fun reminderDao(): ReminderDao
 
+//    val migration_4_5 = object : Migration(4,5){
+//        override fun migrate(database: Support)
+//    }
 //    abstract fun exerciseDao(): ExerciseDao
 
     companion object {
