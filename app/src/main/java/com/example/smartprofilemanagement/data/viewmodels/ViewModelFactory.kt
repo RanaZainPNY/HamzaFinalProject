@@ -20,6 +20,7 @@ import com.example.smartprofilemanagement.ui.screens.signup.SignupViewModel
  */
 object AppViewModelProvider {
     val Factory = viewModelFactory {
+
         // Initializer for HomeViewModel
         initializer {
             ProfileViewModel(
@@ -27,7 +28,6 @@ object AppViewModelProvider {
                     AppDatabase.getDbInstance(getApplication().applicationContext).profileDao()
                 )
             )
-//            HomeViewModel(getApplication().container.workoutRepository)
         }
 
         initializer {
@@ -36,7 +36,6 @@ object AppViewModelProvider {
                     AppDatabase.getDbInstance(getApplication().applicationContext).profileDao()
                 )
             )
-//            HomeViewModel(getApplication().container.workoutRepository)
         }
 
 //        initializer {
@@ -45,7 +44,6 @@ object AppViewModelProvider {
 //                    AppDatabase.getDbInstance(getApplication().applicationContext).userDao()
 //                )
 //            )
-////            HomeViewModel(getApplication().container.workoutRepository)
 //        }
 
 

@@ -55,7 +55,6 @@ fun CallBlockingScreen(
                         .fillMaxWidth()
                         .padding(bottom = 16.dp)
                 )
-
                 Button(
                     onClick = {
                     //    viewModel.blockCall(phoneNumber)
@@ -65,13 +64,8 @@ fun CallBlockingScreen(
                 ) {
                     Text(text = "Block Call")
                 }
-
                 Spacer(modifier = Modifier.height(16.dp))
-
                 Text(text = "Blocked Calls:")
-         //       val blockedCalls by viewModel.blockedCalls.observeAsState(emptyList())
-           ///     blockedCalls.forEach { blockedCall ->
-              //      blockedCall.phoneNumber?.let { it1 -> Text(text = it1) }
                 }
              })
         }

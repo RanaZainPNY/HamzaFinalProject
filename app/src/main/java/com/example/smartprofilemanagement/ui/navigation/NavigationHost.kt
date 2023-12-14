@@ -37,7 +37,7 @@ fun NavigationHost (
 ) {
     NavHost(
         navController = navController,
-        startDestination = Screen.ManageReminders.route,
+        startDestination = Screen.Signup.route,
         modifier = Modifier.padding(15.dp)
     ) {
         composable(route = Screen.Home.route) {

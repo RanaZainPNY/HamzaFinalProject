@@ -61,6 +61,8 @@ fun SignUpScreen(
     var username by rememberSaveable { mutableStateOf(if(model.id==0) "" else model.username) }
 //    var password by rememberSaveable { mutableStateOf(if(model.id==0) "" else model.password) }
     var password by remember { mutableStateOf(TextFieldValue().text) }
+    var confirmPassword by remember { mutableStateOf(TextFieldValue().text) }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -97,15 +99,15 @@ fun SignUpScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-//        OutlinedTextField(
-//            value = confirmPassword.text,
-//            onValueChange = { confirmPassword = TextFieldValue(it) },
-//            placeholder = { Text(text = "Confirm Password") },
-//            singleLine = true,
-//            modifier = Modifier
-//                .fillMaxWidth()
-//                .padding(8.dp)
-//        )
+        OutlinedTextField(
+            value = confirmPassword,
+            onValueChange = { confirmPassword = TextFieldValue(it).text },
+            placeholder = { Text(text = "Confirm Password") },
+            singleLine = true,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(8.dp)
+        )
 
         Spacer(modifier = Modifier.height(24.dp))
 
@@ -118,7 +120,7 @@ fun SignUpScreen(
 //                        password = password.text
 //                    ))
                 // navigate to the home screen
-                navController.navigate(Screen.Profile.route)
+                navController.navigate(Screen.Home.route)
 
             },
             modifier = Modifier
