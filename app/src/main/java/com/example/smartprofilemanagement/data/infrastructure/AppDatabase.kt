@@ -17,19 +17,21 @@ import com.example.smartprofilemanagement.data.entities.User
     entities = [
         Profile::class,
 //        User::class,
-//        Reminder::class,
+        Reminder::class,
 //    Exercise::class,
                ],
     version = 5,
     exportSchema = true,
     autoMigrations = [
-        AutoMigration (from = 4, to = 5)
+        AutoMigration (from = 4, to = 5),
+//        AutoMigration(from = 2, to = 3)
+
     ]
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun profileDao(): ProfileDao
 //    abstract fun userDao(): UserDao
-//    abstract fun reminderDao(): ReminderDao
+    abstract fun reminderDao(): ReminderDao
 
 //    val migration_4_5 = object : Migration(4,5){
 //        override fun migrate(database: Support)

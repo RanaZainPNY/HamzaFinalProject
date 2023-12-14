@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.fir.expressions.FirEmptyArgumentList.arguments
+import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
 
 plugins {
     id("com.android.application")
@@ -21,11 +23,14 @@ android {
             useSupportLibrary = true
         }
 
-        javaCompileOptions {
-            annotationProcessorOptions {
-//                arguments += ["room.schemaLocation" : "$projectDir/schemas".toString()]
-                arguments += mapOf("room.schemaLocation" to "$projectDir/schemas".toString())
-            }
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+////                arguments += ["room.schemaLocation" : "$projectDir/schemas".toString()]
+//                arguments += mapOf("room.schemaLocation" to "$projectDir/schemas".toString())
+//            }
+//        }
+        ksp {
+            arg("room.schemaLocation", "$projectDir/schemas")
         }
 
     }
