@@ -12,17 +12,21 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Call
+import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.outlined.Add
 import androidx.compose.material.icons.outlined.Call
+import androidx.compose.material.icons.outlined.Check
 import androidx.compose.material.icons.outlined.Edit
 import androidx.compose.material.icons.outlined.LocationOn
 import androidx.compose.material.icons.outlined.Notifications
 import androidx.compose.material.icons.outlined.Person
+import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.Button
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -40,6 +44,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -57,9 +62,9 @@ import kotlinx.coroutines.launch
 
 data class NavigationItem(
     val title: String,
-    val selectedIcon: ImageVector,
+  val selectedIcon: ImageVector,
     val unselectedIcon: ImageVector,
-    val badgeCount: Int? = null,
+   val badgeCount: Int? = null,
     val route: String,
 )
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -75,14 +80,14 @@ fun HomeScreen(navController: NavController){
 //        ),
         NavigationItem(
             title = "Manage Reminders",
-            selectedIcon = Icons.Default.Notifications,
+           selectedIcon = Icons.Default.Notifications,
             unselectedIcon = Icons.Outlined.Notifications,
             route = Screen.ManageReminders.route
         ),
         NavigationItem(
             title = "Manage Profiles",
-            selectedIcon = Icons.Filled.Edit,
-            unselectedIcon = Icons.Outlined.Edit,
+           selectedIcon = Icons.Filled.Edit,
+           unselectedIcon = Icons.Outlined.Edit,
             route = Screen.Profile.route
         ),
         NavigationItem(
@@ -121,6 +126,13 @@ fun HomeScreen(navController: NavController){
             unselectedIcon = Icons.Outlined.Call,
             route = Screen.MaintainCallLogs.route
         ),
+        NavigationItem(
+            title = "Sleeping Hours",
+            selectedIcon = Icons.Filled.Check,
+            unselectedIcon = Icons.Outlined.Check,
+            route = Screen.Sleepinghours.route
+        ),
+
     )
     Spacer(modifier = Modifier.fillMaxWidth(1f))
 
@@ -143,7 +155,7 @@ fun HomeScreen(navController: NavController){
         val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
         val scope = rememberCoroutineScope()
         var selectedItemIndex by rememberSaveable {
-            mutableStateOf(0)
+            mutableIntStateOf(0)
         }
         ModalNavigationDrawer(
             drawerContent = {
@@ -201,6 +213,7 @@ fun HomeScreen(navController: NavController){
                                     imageVector = Icons.Default.Menu,
                                     contentDescription = "Menu"
                                 )
+
                             }
                         }
                     )

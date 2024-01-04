@@ -11,9 +11,9 @@ interface LocationDao : IDao<Location> {
     @Query("select * from locations")
     override fun get(): List<Location>
 
-    @Query("SELECT * from locations")
+    @Query("SELECT * from locations WHERE id = :id")
     override fun get(id: Int): Flow<Location?>
 
-    @Query("SELECT * from locations")
+    @Query("SELECT * from locations ORDER BY id DESC")
     override fun getAll(): Flow<List<Location>>
 }

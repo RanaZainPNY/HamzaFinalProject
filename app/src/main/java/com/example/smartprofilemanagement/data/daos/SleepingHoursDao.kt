@@ -12,9 +12,9 @@ interface SleepingHoursDao : IDao<SleepingHours> {
     @Query("select * from sleeping_hours")
     override fun get(): List<SleepingHours>
 
-    @Query("SELECT * from sleeping_hours")
+    @Query("SELECT * from sleeping_hours WHERE id = :id")
     override fun get(id: Int): Flow<SleepingHours?>
 
-    @Query("SELECT * from sleeping_hours")
+    @Query("SELECT * from sleeping_hours ORDER BY id DESC")
     override fun getAll(): Flow<List<SleepingHours>>
 }

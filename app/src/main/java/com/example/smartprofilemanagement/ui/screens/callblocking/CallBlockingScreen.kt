@@ -25,6 +25,9 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.smartprofilemanagement.data.entities.CallBlock
+import com.example.smartprofilemanagement.data.viewmodels.AppViewModelProvider
+import com.example.smartprofilemanagement.ui.screens.managereminder.ReminderViewModel
 import com.example.smartprofilemanagement.ui.theme.SmartProfileManagementTheme
 
 
@@ -32,6 +35,7 @@ import com.example.smartprofilemanagement.ui.theme.SmartProfileManagementTheme
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CallBlockingScreen(
+    viewModel: CallblockViewModel = viewModel(factory = AppViewModelProvider.Factory),
     navController: NavController)
 {
     var phoneNumber by remember { mutableStateOf("") }
@@ -57,7 +61,11 @@ fun CallBlockingScreen(
                 )
                 Button(
                     onClick = {
-                    //    viewModel.blockCall(phoneNumber)
+                      viewModel.insert(CallBlock(
+                          callerName = "",
+                          duration = 0,
+                          timestamp = ""
+                      ))
                         phoneNumber = ""
                     },
                     modifier = Modifier.align(Alignment.CenterHorizontally)

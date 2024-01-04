@@ -32,6 +32,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.smartprofilemanagement.data.entities.Profile
+import com.example.smartprofilemanagement.data.viewmodels.AppViewModelProvider
 import com.example.smartprofilemanagement.ui.theme.SmartProfileManagementTheme
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -48,7 +49,7 @@ val Typography.body1: TextStyle
 
 @Composable
 fun SleepingHoursScreen(
-    // viewModel: SleepingHoursViewModel = viewModel(),
+    viewModel: SleepingHourViewModel = viewModel(factory = AppViewModelProvider.Factory),
     navController: NavController) {
   // val sleepingHours by sleepingHours.observeAsState(emptyList())
     var selectedStartTime by remember { mutableStateOf<String?>(null) }

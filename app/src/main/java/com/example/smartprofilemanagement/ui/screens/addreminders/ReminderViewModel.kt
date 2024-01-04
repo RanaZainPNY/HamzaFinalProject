@@ -1,4 +1,5 @@
-package com.example.smartprofilemanagement.ui.screens.callblocking
+package com.example.smartprofilemanagement.ui.screens.addreminders
+
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -9,52 +10,50 @@ import kotlinx.coroutines.flow.stateIn
 
 import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.compose.runtime.toMutableStateList
-import com.example.smartprofilemanagement.data.entities.CallBlock
 import com.example.smartprofilemanagement.data.entities.Reminder
-import com.example.smartprofilemanagement.data.repositories.CallBlockRepository
 import com.example.smartprofilemanagement.data.repositories.ReminderRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class CallblockViewModel(private val repository: CallBlockRepository) : ViewModel() {
+class ReminderViewModel(private val repository: ReminderRepository) : ViewModel() {
 //    val counterHome: Int = 999
 
-    val callBlockUiState: StateFlow<CallBlockUiState> =
-        repository.getAll().map { CallBlockUiState(it) }
+    val reminderUiState: StateFlow<ReminderUiState> =
+        repository.getAll().map { ReminderUiState(it) }
             .stateIn(
                 scope = viewModelScope,
                 started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS),
-                initialValue = CallBlockUiState()
+                initialValue = ReminderUiState()
             )
     companion object {
         private const val TIMEOUT_MILLIS = 5_000L
     }
 
-    private val _items = MutableStateFlow<SnapshotStateList<CallBlock>>(SnapshotStateList())
+    private val _items = MutableStateFlow<SnapshotStateList<Reminder>>(SnapshotStateList())
     val items = _items.asStateFlow()
 
 
-    internal fun getList(): StateFlow<SnapshotStateList<CallBlock>> {
+    internal fun getList(): StateFlow<SnapshotStateList<Reminder>> {
         return _items.asStateFlow()
     }
 
 
-    internal fun insert(model: CallBlock) {
+    internal fun insert(model: Reminder) {
         viewModelScope.launch {
             repository.insert(model)
             _items.emit(items.value)
         }
     }
 
-    internal fun update(model: CallBlock, listToUpdate: List<CallBlock>) {
+    internal fun update(model: Reminder, listToUpdate: List<Reminder>) {
         viewModelScope.launch {
             repository.update(model)
             _items.value = listToUpdate.toMutableStateList()
         }
     }
 
-    internal fun delete(model: CallBlock) {
+    internal fun delete(model: Reminder) {
         viewModelScope.launch {
             repository.delete(model)
             _items.emit(items.value)
@@ -65,8 +64,8 @@ class CallblockViewModel(private val repository: CallBlockRepository) : ViewMode
     private fun initializeList() {
         viewModelScope.launch {
             repository.allItems
-                .collect { callBlockList ->
-                    _items.value = callBlockList.toMutableStateList()
+                .collect { reminderList ->
+                    _items.value = reminderList.toMutableStateList()
                 }
         }
     }
@@ -80,4 +79,4 @@ class CallblockViewModel(private val repository: CallBlockRepository) : ViewMode
 /**
  * Ui State for HomeScreen
  */
-data class CallBlockUiState(val itemList: List<CallBlock> = listOf())
+data class ReminderUiState(val itemList: List<Reminder> = listOf())

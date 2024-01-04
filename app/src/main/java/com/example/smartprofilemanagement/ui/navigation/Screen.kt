@@ -8,6 +8,7 @@ sealed class Screen(val options:ScreenOptions) {
     val name = options.name
 
     object Home:Screen(ScreenOptions("home_screen","Home"))
+    object Splash:Screen(ScreenOptions("splash_screen","Splash"))
 
     object Profile:Screen(ScreenOptions("profile_screen","Profile"))
 

@@ -20,9 +20,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.smartprofilemanagement.data.viewmodels.AppViewModelProvider
 import com.example.smartprofilemanagement.ui.navigation.Screen
+import com.example.smartprofilemanagement.ui.screens.managereminder.ReminderViewModel
 import com.example.smartprofilemanagement.ui.theme.SmartProfileManagementTheme
 import java.util.concurrent.TimeUnit
 
@@ -46,7 +49,7 @@ import java.util.concurrent.TimeUnit
 
 @Composable
 fun CallLogScreen(
-    //viewModel: CallLogViewModel,
+    viewModel: CallLogViewModel = viewModel(factory = AppViewModelProvider.Factory),
     navController: NavController) {
     Box(
         contentAlignment = Alignment.Center,

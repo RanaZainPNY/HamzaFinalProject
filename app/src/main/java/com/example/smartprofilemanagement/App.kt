@@ -1,16 +1,9 @@
 package com.example.smartprofilemanagement
 
 import android.annotation.SuppressLint
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material.icons.outlined.AccountCircle
-import androidx.compose.material.icons.outlined.Home
-import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -21,10 +14,10 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.smartprofilemanagement.ui.navigation.NavigationHost
+import com.google.maps.android.compose.CameraPositionState
 
 //import com.perspectivev.workouttracker.ui.navigation.NavigationHost
 //import com.perspectivev.workouttracker.ui.navigation.BottomNavItem
@@ -35,9 +28,11 @@ import com.example.smartprofilemanagement.ui.navigation.NavigationHost
  * Top level composable that represents screens for the application.
  */
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
-@OptIn(ExperimentalMaterial3Api::class)
+
 @Composable
-fun AppInit(navController: NavHostController = rememberNavController()) {
+fun AppInit(
+    navController: NavHostController = rememberNavController()
+) {
     Scaffold(
 //        bottomBar = {
 //            BottomNavigationBar(items = listOf(
@@ -67,7 +62,7 @@ fun AppInit(navController: NavHostController = rememberNavController()) {
 //        }
     ) {
         Surface(modifier = Modifier.padding(it)) {
-            NavigationHost(navController = navController)
+            NavigationHost(navController = navController, cameraPositionState = CameraPositionState())
         }
     }
 }

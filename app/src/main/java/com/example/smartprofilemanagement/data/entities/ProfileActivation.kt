@@ -4,11 +4,10 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "locations")
-data class Location(
+@Entity(tableName = "ProfileActivations")
+data class ProfileActivation(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo("id") val id: Int,
     @ColumnInfo("latitude") val latitude: Double ,
     @ColumnInfo("longtitude")val longitude: Double,
-    @ColumnInfo("timestamp") val timestamp: Long
 )

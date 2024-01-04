@@ -1,9 +1,11 @@
 package com.example.smartprofilemanagement.data.infrastructure
 
 import android.content.Context
+import com.example.smartprofilemanagement.data.repositories.CallBlockRepository
 import com.example.smartprofilemanagement.data.repositories.CallLogRepository
 import com.example.smartprofilemanagement.data.repositories.LocationRepository
 import com.example.smartprofilemanagement.data.repositories.MessageRepository
+import com.example.smartprofilemanagement.data.repositories.ProfileActivationRepository
 import com.example.smartprofilemanagement.data.repositories.ProfileRepository
 import com.example.smartprofilemanagement.data.repositories.ReminderRepository
 import com.example.smartprofilemanagement.data.repositories.SleepingHoursRepository
@@ -15,9 +17,11 @@ interface IAppContainer {
 //    val userRepository: UserRepository
     val reminderRepository: ReminderRepository
     val callLogRepository: CallLogRepository
+    val callBlockRepository: CallBlockRepository
     val messageRepository: MessageRepository
     val locationRepository:LocationRepository
     val sleepingHoursRepository: SleepingHoursRepository
+    val profileActivationRepository: ProfileActivationRepository
 //    val exerciseRepository: ExerciseRepository
 }
 class AppContainer(private val context: Context) : IAppContainer {
@@ -37,6 +41,9 @@ class AppContainer(private val context: Context) : IAppContainer {
     override val callLogRepository: CallLogRepository by lazy {
         CallLogRepository(AppDatabase.getDbInstance(context).callLogDao())
     }
+    override val callBlockRepository: CallBlockRepository by lazy {
+        CallBlockRepository(AppDatabase.getDbInstance(context).callBlockDao())
+    }
     override val messageRepository: MessageRepository by lazy {
         MessageRepository(AppDatabase.getDbInstance(context).messageDao())
     }
@@ -45,6 +52,9 @@ class AppContainer(private val context: Context) : IAppContainer {
     }
     override val sleepingHoursRepository: SleepingHoursRepository by lazy {
         SleepingHoursRepository(AppDatabase.getDbInstance(context).sleepingHoursDao())
+    }
+    override val profileActivationRepository: ProfileActivationRepository by lazy {
+        ProfileActivationRepository(AppDatabase.getDbInstance(context).profileActivationDao())
     }
 
 //    override val exerciseRepository: ExerciseRepository by lazy {

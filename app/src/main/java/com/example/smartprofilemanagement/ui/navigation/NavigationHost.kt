@@ -9,19 +9,20 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.smartprofilemanagement.SplashScreen
 import com.example.smartprofilemanagement.ui.screens.addreminders.AddReminderScreen
 import com.example.smartprofilemanagement.ui.screens.callblocking.CallBlockingScreen
 import com.example.smartprofilemanagement.ui.screens.calllogs.CallLogScreen
 import com.example.smartprofilemanagement.ui.screens.currentlocation.CurrentLocationScreen
 import com.example.smartprofilemanagement.ui.screens.home.HomeScreen
-import com.example.smartprofilemanagement.ui.screens.maintaincalllog.MaintainCallLogScreen
 import com.example.smartprofilemanagement.ui.screens.manageprofile.ManageProfilesScreen
 //import com.example.smartprofilemanagement.ui.screens.managereminder.ManageRemindersScreen
 import com.example.smartprofilemanagement.ui.screens.messagenotification.MessageNotificationScreen
-import com.example.smartprofilemanagement.ui.screens.newProfile.NewProfileScreen
 import com.example.smartprofilemanagement.ui.screens.profile.ProfileScreen
 import com.example.smartprofilemanagement.ui.screens.profileActivation.ProfileActivationScreen
 import com.example.smartprofilemanagement.ui.screens.signup.SignUpScreen
+import com.example.smartprofilemanagement.ui.screens.sleepinghours.SleepingHoursScreen
+import com.google.maps.android.compose.CameraPositionState
 
 //import com.perspectivev.workouttracker.ui.screens.exercise.ExerciseScreen
 //import com.perspectivev.workouttracker.ui.screens.home.HomeScreen
@@ -29,19 +30,23 @@ import com.example.smartprofilemanagement.ui.screens.signup.SignUpScreen
 //import com.perspectivev.workouttracker.ui.screens.settings.SettingScreen
 //import com.perspectivev.workouttracker.ui.screens.workout.WorkoutScreen
 
-@OptIn(ExperimentalMaterial3Api::class)
+
 @Composable
 fun NavigationHost (
     navController: NavHostController,
     modifier: Modifier = Modifier,
+    cameraPositionState: CameraPositionState,
 ) {
     NavHost(
         navController = navController,
-        startDestination = Screen.Signup.route,
+        startDestination = Screen.Splash.route,
         modifier = Modifier.padding(15.dp)
     ) {
         composable(route = Screen.Home.route) {
             HomeScreen(navController = navController)
+        }
+        composable(route = Screen.Splash.route) {
+            SplashScreen(navController = navController)
         }
         composable(route=Screen.Signup.route){
             SignUpScreen(navController = navController)
@@ -59,9 +64,7 @@ fun NavigationHost (
 //        composable(route=Screen.MaintainCallLogs.route){
 //            MaintainCallLogScreen(navController = navController)
 //        }
-        composable(route=Screen.NewProfile.route){
-            NewProfileScreen(navController = navController)
-        }
+
         composable(route=Screen.ProfileActivation.route){
             ProfileActivationScreen(navController = navController)
         }
@@ -79,6 +82,15 @@ fun NavigationHost (
         }
         composable(route=Screen.CurrentLocation.route){
             CurrentLocationScreen(navController = navController)
+        }
+        composable(route=Screen.Sleepinghours.route){
+            SleepingHoursScreen(navController = navController)
+        }
+        composable(route=Screen.CallLogs.route){
+            CallLogScreen(navController = navController)
+        }
+        composable(route=Screen.CallBlocking.route){
+            CallBlockingScreen(navController = navController)
         }
 //        composable(route = Screen.Progress.route) {
 //            ProgressScreen()
