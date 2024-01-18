@@ -5,6 +5,7 @@ import com.example.smartprofilemanagement.data.repositories.CallBlockRepository
 import com.example.smartprofilemanagement.data.repositories.CallLogRepository
 import com.example.smartprofilemanagement.data.repositories.LocationRepository
 import com.example.smartprofilemanagement.data.repositories.MessageRepository
+import com.example.smartprofilemanagement.data.repositories.ProfileActivationNotificationRepository
 import com.example.smartprofilemanagement.data.repositories.ProfileActivationRepository
 import com.example.smartprofilemanagement.data.repositories.ProfileRepository
 import com.example.smartprofilemanagement.data.repositories.ReminderRepository
@@ -23,6 +24,7 @@ interface IAppContainer {
     val sleepingHoursRepository: SleepingHoursRepository
     val profileActivationRepository: ProfileActivationRepository
 //    val exerciseRepository: ExerciseRepository
+    val profileActivationNotificationRepository: ProfileActivationNotificationRepository
 }
 class AppContainer(private val context: Context) : IAppContainer {
     override val profileRepository: ProfileRepository by lazy {
@@ -55,6 +57,9 @@ class AppContainer(private val context: Context) : IAppContainer {
     }
     override val profileActivationRepository: ProfileActivationRepository by lazy {
         ProfileActivationRepository(AppDatabase.getDbInstance(context).profileActivationDao())
+    }
+    override val profileActivationNotificationRepository: ProfileActivationNotificationRepository by lazy {
+        ProfileActivationNotificationRepository(AppDatabase.getDbInstance(context).profileActivationNotificationDao())
     }
 
 //    override val exerciseRepository: ExerciseRepository by lazy {

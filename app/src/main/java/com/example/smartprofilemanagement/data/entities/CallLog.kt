@@ -10,5 +10,6 @@ data class CallLog(
     @ColumnInfo("id") val id: Int = 0,
     @ColumnInfo("callerName") val callerName: String,
     @ColumnInfo("duration") val duration: Int,
-    @ColumnInfo("timestamp") val timestamp:String
+    @ColumnInfo("timestamp") val timestamp:String,
+
 )

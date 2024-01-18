@@ -64,7 +64,7 @@ val defaultCameraPosition = CameraPosition.fromLatLngZoom(Pakistanstate, 10f)
 
 @Composable
 fun CurrentLocationScreen(
-    viewModel: CurrentLocationViewModel = viewModel(factory = AppViewModelProvider.Factory),
+   viewModel: CurrentLocationViewModel = viewModel(factory = AppViewModelProvider.Factory),
     navController: NavController,
 
 ) {
@@ -121,7 +121,6 @@ fun GoogleMapsView(
     fun CurrentLocationPreview() {
         SmartProfileManagementTheme {
             val navController = rememberNavController()
-            val cameraPositionState = rememberCameraPositionState()
             CurrentLocationScreen(navController = navController)
         }
     }

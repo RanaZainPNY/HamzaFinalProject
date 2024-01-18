@@ -16,6 +16,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.MaterialTheme.typography
 import androidx.compose.material3.Text
 import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
@@ -38,18 +39,10 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-val Typography.h6: TextStyle
-    get() {
-        TODO("Not yet implemented")
-    }
-val Typography.body1: TextStyle
-    get() {
-        TODO("Not yet implemented")
-    }
 
 @Composable
 fun SleepingHoursScreen(
-    viewModel: SleepingHourViewModel = viewModel(factory = AppViewModelProvider.Factory),
+   // viewModel: SleepingHourViewModel = viewModel(factory = AppViewModelProvider.Factory),
     navController: NavController) {
   // val sleepingHours by sleepingHours.observeAsState(emptyList())
     var selectedStartTime by remember { mutableStateOf<String?>(null) }
@@ -62,7 +55,7 @@ fun SleepingHoursScreen(
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        Text("Sleeping Hours", style = MaterialTheme.typography.h6)
+        Text("Sleeping Hours", style = typography.bodyMedium)
 
         LazyColumn {
           //  items(sleepingHours) { hours ->
@@ -99,7 +92,7 @@ fun SleepingHoursScreen(
     }
 
 
-private fun LazyItemScope.SleepingHoursItem(profile: Int) {
+private fun LazyItemScope.sleepingHoursItem(profile: Int) {
     TODO("Not yet implemented")
 }
 
@@ -122,7 +115,7 @@ fun SleepingHoursItem(profile: Profile) {
                         it
                     )
                 }?.let { SimpleDateFormat("HH:mm", Locale.getDefault()).format(it) }
-            }", style = MaterialTheme.typography.h6)
+            }", style = typography.bodyMedium)
             Text(text = "End Time: ${
                 profile.sleepingHoursEnd?.let {
 
@@ -153,7 +146,7 @@ fun TimePicker(
             keyboardOptions = KeyboardOptions.Default.copy(
                 keyboardType = KeyboardType.NumberPassword
             ),
-            textStyle = MaterialTheme.typography.body1,
+            textStyle = MaterialTheme.typography.bodyMedium,
             modifier = Modifier
                 .fillMaxWidth()
                 .height(56.dp)

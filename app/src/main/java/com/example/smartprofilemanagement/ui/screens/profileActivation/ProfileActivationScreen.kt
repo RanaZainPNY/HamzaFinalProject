@@ -27,8 +27,6 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.smartprofilemanagement.data.viewmodels.AppViewModelProvider
-import com.example.smartprofilemanagement.ui.screens.managereminder.ReminderViewModel
-import com.example.smartprofilemanagement.ui.screens.sleepinghours.h6
 import com.example.smartprofilemanagement.ui.theme.SmartProfileManagementTheme
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -42,7 +40,7 @@ import kotlinx.coroutines.launch
 @Composable
 fun ProfileActivationScreen(
     navController: NavController,
-    viewModel: ProfileActivationViewModel = viewModel(factory = AppViewModelProvider.Factory)
+    //viewModel: ProfileActivationViewModel = viewModel(factory = AppViewModelProvider.Factory)
 ) {
     var mapView by remember { mutableStateOf<MapView?>(null) }
     var googleMap by remember { mutableStateOf<GoogleMap?>(null) }
@@ -115,7 +113,7 @@ fun ProfileActivationScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp),
-            style = MaterialTheme.typography.h6,
+            style = MaterialTheme.typography.bodyMedium,
             color = Color.White
         )
     }

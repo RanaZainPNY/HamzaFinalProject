@@ -6,19 +6,25 @@ import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.AP
 import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
+import com.example.smartprofilemanagement.data.entities.ProfileActivationNotification
 import com.example.smartprofilemanagement.data.infrastructure.AppDatabase
+import com.example.smartprofilemanagement.data.repositories.CallBlockRepository
 import com.example.smartprofilemanagement.data.repositories.LocationRepository
 import com.example.smartprofilemanagement.data.repositories.MessageRepository
+import com.example.smartprofilemanagement.data.repositories.ProfileActivationNotificationRepository
 import com.example.smartprofilemanagement.data.repositories.ProfileActivationRepository
 import com.example.smartprofilemanagement.data.repositories.ProfileRepository
 import com.example.smartprofilemanagement.data.repositories.ReminderRepository
 import com.example.smartprofilemanagement.data.repositories.UserRepository
+import com.example.smartprofilemanagement.ui.navigation.Screen
+import com.example.smartprofilemanagement.ui.screens.callblocking.CallblockViewModel
 import com.example.smartprofilemanagement.ui.screens.currentlocation.CurrentLocationViewModel
 import com.example.smartprofilemanagement.ui.screens.home.HomeViewModel
 import com.example.smartprofilemanagement.ui.screens.managereminder.ReminderViewModel
 import com.example.smartprofilemanagement.ui.screens.messagenotification.MessageNotificationViewModel
 import com.example.smartprofilemanagement.ui.screens.profile.ProfileViewModel
 import com.example.smartprofilemanagement.ui.screens.profileActivation.ProfileActivationViewModel
+import com.example.smartprofilemanagement.ui.screens.profileactivationnotification.ProfileActivationNotificationViewModel
 import com.example.smartprofilemanagement.ui.screens.signup.SignupViewModel
 
 /**
@@ -80,6 +86,22 @@ object AppViewModelProvider {
             ProfileActivationViewModel(
                 ProfileActivationRepository(
                     AppDatabase.getDbInstance(getApplication().applicationContext).profileActivationDao()
+                )
+            )
+//            HomeViewModel(getApplication().container.workoutRepository)
+        }
+        initializer {
+            ProfileActivationNotificationViewModel(
+                ProfileActivationNotificationRepository(
+                    AppDatabase.getDbInstance(getApplication().applicationContext).profileActivationNotificationDao()
+                )
+            )
+//            HomeViewModel(getApplication().container.workoutRepository)
+        }
+        initializer {
+            CallblockViewModel(
+                CallBlockRepository(
+                    AppDatabase.getDbInstance(getApplication().applicationContext).callBlockDao()
                 )
             )
 //            HomeViewModel(getApplication().container.workoutRepository)

@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.READ_CALL_LOG" />
     <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
     <uses-permission
@@ -15,6 +16,7 @@
 
     <application
         android:allowBackup="true"
+        android:appCategory="audio"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -23,7 +25,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartProfileManagement"
         tools:targetApi="31">
+        <meta-data
+            android:name="com.google.android.gms.car.application"
+            android:resource="@xml/automotive_app_desc" />
 
+        <service
+            android:name=".ui.screens.messagenotification.MyMessagingService"
+            android:exported="true" />
+
+        <receiver
+            android:name=".ui.screens.messagenotification.MessageReadReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.smartprofilemanagement.ui.screens.messagenotification.ACTION_MESSAGE_READ" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".ui.screens.messagenotification.MessageReplyReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.smartprofilemanagement.ui.screens.messagenotification.ACTION_MESSAGE_REPLY" />
+            </intent-filter>
+        </receiver>
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 

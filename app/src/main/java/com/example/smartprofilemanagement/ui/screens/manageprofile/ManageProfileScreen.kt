@@ -26,8 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.example.smartprofilemanagement.ui.screens.sleepinghours.body1
-import com.example.smartprofilemanagement.ui.screens.sleepinghours.h6
+
 //import com.example.smartprofilemanageent.ui.theme.SMARTprofileManageentTheme
 //import com.example.smartprofilemanageent.viewmodel.ProfileViewModel
 import kotlin.reflect.KProperty
@@ -52,7 +51,7 @@ fun ManageProfilesScreen(
             .fillMaxSize()
             .padding(16.dp)
     ) {
-        Text("Manage Profiles", style = MaterialTheme.typography.h6)
+        Text("Manage Profiles")
 
         LazyColumn {
 //            items(profiles) { profile ->
@@ -91,8 +90,8 @@ fun ProfileItem(profile: Int, onDelete: () -> Unit) {
         Column(
             modifier = Modifier.padding(16.dp)
         ) {
-            Text(text = "Profile Name:", style = MaterialTheme.typography.h6)
-            Text(text = "Description:", style = MaterialTheme.typography.body1)
+            Text(text = "Profile Name:")
+            Text(text = "Description:")
 
             Row(
                 modifier = Modifier

@@ -15,6 +15,7 @@ import com.example.smartprofilemanagement.ui.screens.callblocking.CallBlockingSc
 import com.example.smartprofilemanagement.ui.screens.calllogs.CallLogScreen
 import com.example.smartprofilemanagement.ui.screens.currentlocation.CurrentLocationScreen
 import com.example.smartprofilemanagement.ui.screens.home.HomeScreen
+import com.example.smartprofilemanagement.ui.screens.maintaincalllog.MaintainCallLogScreen
 import com.example.smartprofilemanagement.ui.screens.manageprofile.ManageProfilesScreen
 //import com.example.smartprofilemanagement.ui.screens.managereminder.ManageRemindersScreen
 import com.example.smartprofilemanagement.ui.screens.messagenotification.MessageNotificationScreen
@@ -56,14 +57,15 @@ fun NavigationHost (
             ProfileScreen(navController = navController)
         }
         composable(route=Screen.CallBlocking.route){
-            CallBlockingScreen(navController = navController)
+            CallBlockingScreen(navController = navController, onNavigateUp = {})
         }
         composable(route=Screen.CallLogs.route){
             CallLogScreen(navController = navController)
         }
-//        composable(route=Screen.MaintainCallLogs.route){
-//            MaintainCallLogScreen(navController = navController)
-//        }
+      //  composable(route=Screen.MaintainCallLogs.route){
+        //   MaintainCallLogScreen(navController = navController, callLogs = callLogs,
+          //     onClearClick = {})
+        //}
 
         composable(route=Screen.ProfileActivation.route){
             ProfileActivationScreen(navController = navController)
@@ -78,7 +80,7 @@ fun NavigationHost (
             AddReminderScreen(navController = navController)
         }
         composable(route=Screen.MessageNotification.route){
-            MessageNotificationScreen(navController = navController,profileId = null)
+            MessageNotificationScreen(navController = navController)
         }
         composable(route=Screen.CurrentLocation.route){
             CurrentLocationScreen(navController = navController)
@@ -86,12 +88,8 @@ fun NavigationHost (
         composable(route=Screen.Sleepinghours.route){
             SleepingHoursScreen(navController = navController)
         }
-        composable(route=Screen.CallLogs.route){
-            CallLogScreen(navController = navController)
-        }
-        composable(route=Screen.CallBlocking.route){
-            CallBlockingScreen(navController = navController)
-        }
+
+
 //        composable(route = Screen.Progress.route) {
 //            ProgressScreen()
 //        }

@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">SmartProfileManagement</string>
     <string name="title_activity_google_maps_view">GoogleMapsViewActivity</string>
+    <string name="back">back</string>
+    <string name="call_blocking_title">call_blocking_title</string>
+    <string name="enable_call_blocking">enable_call_blocking</string>
+    <string name="phone_icon">phone_icon</string>
+    <string name="delete_icon">delete_icon</string>
+    <string name="enter_phone_number">enter_phone_number</string>
+    <string name="add_icon">add_icon</string>
+    <string name="enter_valid_number_warning">enter_valid_number_warning</string>
+    <string name="warning_icon">warning_icon</string>
 </resources>

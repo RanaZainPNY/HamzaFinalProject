@@ -107,11 +107,3 @@ fun CallLogScreen(
 //
 
 
-@Preview(showBackground = true)
-@Composable
-fun CallLogScreen(){
-    SmartProfileManagementTheme {
-        val navController = rememberNavController()
-        CallLogScreen(navController = navController)
-    }
-}

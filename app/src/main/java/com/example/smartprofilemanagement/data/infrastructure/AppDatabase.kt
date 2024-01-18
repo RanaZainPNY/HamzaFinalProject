@@ -10,6 +10,7 @@ import com.example.smartprofilemanagement.data.daos.CallLogDao
 import com.example.smartprofilemanagement.data.daos.LocationDao
 import com.example.smartprofilemanagement.data.daos.MessageDao
 import com.example.smartprofilemanagement.data.daos.ProfileActivationDao
+import com.example.smartprofilemanagement.data.daos.ProfileActivationNotificationDao
 import com.example.smartprofilemanagement.data.daos.ProfileDao
 import com.example.smartprofilemanagement.data.daos.ReminderDao
 import com.example.smartprofilemanagement.data.daos.SleepingHoursDao
@@ -20,6 +21,7 @@ import com.example.smartprofilemanagement.data.entities.Location
 import com.example.smartprofilemanagement.data.entities.Message
 import com.example.smartprofilemanagement.data.entities.Profile
 import com.example.smartprofilemanagement.data.entities.ProfileActivation
+import com.example.smartprofilemanagement.data.entities.ProfileActivationNotification
 import com.example.smartprofilemanagement.data.entities.Reminder
 import com.example.smartprofilemanagement.data.entities.SleepingHours
 import com.example.smartprofilemanagement.data.entities.User
@@ -36,9 +38,10 @@ import com.example.smartprofilemanagement.data.entities.User
         SleepingHours::class,
         Location::class,
         ProfileActivation::class,
+        ProfileActivationNotification::class,
 //    Exercise::class,
                ],
-    version = 11,
+    version = 12,
     exportSchema = true,
     autoMigrations = [
         AutoMigration (from = 4, to = 5),
@@ -48,6 +51,7 @@ import com.example.smartprofilemanagement.data.entities.User
         AutoMigration (from = 8, to = 9),
         AutoMigration (from = 9, to = 10),
         AutoMigration (from = 10, to = 11),
+        AutoMigration (from = 11, to = 12),
 
 //        AutoMigration(from = 2, to = 3)
 
@@ -63,6 +67,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun locationDao(): LocationDao
     abstract fun sleepingHoursDao(): SleepingHoursDao
     abstract fun profileActivationDao(): ProfileActivationDao
+    abstract fun profileActivationNotificationDao(): ProfileActivationNotificationDao
 
 //    val migration_4_5 = object : Migration(4,5){
 //        override fun migrate(database: Support)
