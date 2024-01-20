@@ -29,24 +29,8 @@
             android:name="com.google.android.gms.car.application"
             android:resource="@xml/automotive_app_desc" />
 
-        <service
-            android:name=".ui.screens.messagenotification.MyMessagingService"
-            android:exported="true" />
 
-        <receiver
-            android:name=".ui.screens.messagenotification.MessageReadReceiver"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.example.smartprofilemanagement.ui.screens.messagenotification.ACTION_MESSAGE_READ" />
-            </intent-filter>
-        </receiver>
-        <receiver
-            android:name=".ui.screens.messagenotification.MessageReplyReceiver"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.example.smartprofilemanagement.ui.screens.messagenotification.ACTION_MESSAGE_REPLY" />
-            </intent-filter>
-        </receiver>
+
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
