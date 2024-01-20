@@ -27,14 +27,18 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.widget.doOnTextChanged
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.smartprofilemanagement.R
+import com.example.smartprofilemanagement.data.viewmodels.AppViewModelProvider
+import com.example.smartprofilemanagement.ui.screens.sleepinghours.SleepingHourViewModel
 import com.example.smartprofilemanagement.ui.theme.SmartProfileManagementTheme
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
-fun MessageNotificationScreen(navController: NavController) {
+fun MessageNotificationScreen(navController: NavController,
+                              viewModel: MessageNotificationViewModel = viewModel(factory = AppViewModelProvider.Factory)) {
     var message by remember { mutableStateOf("") }
     var phoneNumber by remember { mutableStateOf("") }
     val keyboardController = LocalSoftwareKeyboardController.current
@@ -154,6 +158,8 @@ private fun showToast(context: Context, message: String) {
 @Composable
 fun MessageNotifictionPreview(){
     SmartProfileManagementTheme {
+
+
         val navController = rememberNavController()
         MessageNotificationScreen(navController = navController)
     }

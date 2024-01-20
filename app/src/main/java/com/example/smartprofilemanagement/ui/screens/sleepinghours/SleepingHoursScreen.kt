@@ -42,7 +42,7 @@ import java.util.Locale
 
 @Composable
 fun SleepingHoursScreen(
-   // viewModel: SleepingHourViewModel = viewModel(factory = AppViewModelProvider.Factory),
+    viewModel: SleepingHourViewModel = viewModel(factory = AppViewModelProvider.Factory),
     navController: NavController) {
   // val sleepingHours by sleepingHours.observeAsState(emptyList())
     var selectedStartTime by remember { mutableStateOf<String?>(null) }
@@ -160,14 +160,12 @@ fun TimePicker(
         ) {
             Text(text = "Set $title")
         }
-    }
-}
+    }}
 @Preview(showBackground = true)
 @Composable
 fun SleepingHoursPreview(){
     SmartProfileManagementTheme {
         val navController = rememberNavController()
-
         SleepingHoursScreen(navController= navController)
     }
 }

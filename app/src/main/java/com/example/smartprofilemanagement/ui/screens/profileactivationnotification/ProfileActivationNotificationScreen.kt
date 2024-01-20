@@ -39,7 +39,7 @@ import com.example.smartprofilemanagement.ui.theme.SmartProfileManagementTheme
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
-fun ProfileActivationScreen(navController: NavController) {
+fun ProfileActivationNotificationScreen(navController: NavController) {
     var profileName by remember { mutableStateOf("") }
     val keyboardController = LocalSoftwareKeyboardController.current
     val context = LocalContext.current
@@ -235,9 +235,9 @@ private fun createNotificationChannel(context: Context) {
 
 @Composable
 @Preview(showBackground = true)
-fun ProfileActivationScreenPreview() {
+fun ProfileActivationNotificationScreen() {
     SmartProfileManagementTheme {
         val navController = rememberNavController()
-        ProfileActivationScreen(navController = navController)
+        ProfileActivationNotificationScreen(navController = navController)
     }
 }

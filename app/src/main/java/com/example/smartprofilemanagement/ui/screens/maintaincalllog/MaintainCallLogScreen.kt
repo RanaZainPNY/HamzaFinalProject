@@ -17,7 +17,7 @@ import com.example.smartprofilemanagement.ui.theme.SmartProfileManagementTheme
 @Composable
 fun MaintainCallLogScreen (
     navController: NavController,
-    callLogs: List<CallLog>,
+    callLogs: List<CallLog> = emptyList() ,
     onClearClick: () -> Unit
 ) {
 

@@ -21,6 +21,7 @@ import com.example.smartprofilemanagement.ui.screens.manageprofile.ManageProfile
 import com.example.smartprofilemanagement.ui.screens.messagenotification.MessageNotificationScreen
 import com.example.smartprofilemanagement.ui.screens.profile.ProfileScreen
 import com.example.smartprofilemanagement.ui.screens.profileActivation.ProfileActivationScreen
+import com.example.smartprofilemanagement.ui.screens.profileactivationnotification.ProfileActivationNotificationScreen
 import com.example.smartprofilemanagement.ui.screens.signup.SignUpScreen
 import com.example.smartprofilemanagement.ui.screens.sleepinghours.SleepingHoursScreen
 import com.google.maps.android.compose.CameraPositionState
@@ -56,16 +57,21 @@ fun NavigationHost (
         composable(route=Screen.Profile.route){
             ProfileScreen(navController = navController)
         }
+
+        composable(route=Screen.ProfileActivationNotification.route){
+            ProfileActivationNotificationScreen(navController = navController)
+        }
         composable(route=Screen.CallBlocking.route){
             CallBlockingScreen(navController = navController, onNavigateUp = {})
         }
         composable(route=Screen.CallLogs.route){
             CallLogScreen(navController = navController)
         }
-      //  composable(route=Screen.MaintainCallLogs.route){
-        //   MaintainCallLogScreen(navController = navController, callLogs = callLogs,
-          //     onClearClick = {})
-        //}
+
+        composable(route=Screen.MaintainCallLogs.route){
+           MaintainCallLogScreen(navController = navController,
+               onClearClick = {})
+        }
 
         composable(route=Screen.ProfileActivation.route){
             ProfileActivationScreen(navController = navController)
